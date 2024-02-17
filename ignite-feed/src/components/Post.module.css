@@ -34,6 +34,14 @@
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  .post > header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
 .post > header time {
   font-size: 0.875rem;
   color: var(--gray-400);
@@ -96,7 +104,7 @@
   max-height: none;
 }
 
-.commentForm button {
+.commentForm button[type="submit"] {
   padding: 1rem 1.5rem;
   margin-top: 1rem;
   border-radius: 8px;
@@ -108,8 +116,13 @@
   transition: background 0.1s;
 }
 
-.commentForm button:hover {
+.commentForm button[type="submit"]:not(:disabled):hover {
   background: var(--green-300);
+}
+
+.commentForm button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .commentList {

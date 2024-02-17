@@ -4,9 +4,22 @@
 
 ### Ignite Feed
 
-Projeto inicialmente criado com [Vite](https://vitejs.dev/), utilizando o [React]() com JavaScript
+Projeto inicialmente criado com [Vite](https://vitejs.dev/), utilizando o [React](https://react.dev/) com JavaScript.
+Se trata de uma aplicação onde pessoas do ramo tecnológico possam compartilhar projetos
+
+É possível adicionar, aplaudir e deletar comentários
 
 ---
+
+#### 📚 Estudos
+
+##### Módulo 1
+
+No primeiro módulo de estudos, cria-se a estrutura e design da aplicação, com o HTML e CSS no React, onde cria-se o esqueleto do site e responsividade
+
+##### Módulo 2
+
+No segundo módulo adicionamos as funcionalidades principais da aplicação relacionadas aos comentários, onde podemos adicionar, deletar e aplaudir (curtir) comentários
 
 #### 📝 Requisitos
 
