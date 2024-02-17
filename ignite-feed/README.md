@@ -19,7 +19,11 @@ No primeiro módulo de estudos, cria-se a estrutura e design da aplicação, com
 
 ##### Módulo 2
 
-No segundo módulo adicionamos as funcionalidades principais da aplicação relacionadas aos comentários, onde podemos adicionar, deletar e aplaudir (curtir) comentários
+No segundo módulo adiciona-se as funcionalidades principais da aplicação relacionadas aos comentários, onde podemos adicionar, deletar e aplaudir (curtir) comentários. Para isso, aprende-se conceitos do React como Estados, Imutabilidade, Properties, Comunicação entre componentes, Keys para identificação de elementos, validação de formulários e Programação Declarativa.
+
+##### Módulo 3
+
+No terceiro, e último módulo, insere-se o TypeScript no projeto para a utilização de uma tipagem estática para o projeto. Também, nesse mesmo módulo, aprende-se alguns conceitos do próprio TypeScript para o React, como Interface.
 
 #### 📝 Requisitos
 

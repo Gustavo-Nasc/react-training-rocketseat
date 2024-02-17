@@ -2,13 +2,13 @@ import styles from './App.module.css'
 
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
-import { Post } from './components/Post'
+import { Post, PostType } from './components/Post'
 
 // author: { avatar_url: string, nome: string, role: string }
 // publishedAt: Date
 // content: string
 
-const posts = [
+const posts: PostType[] = [
   {
     id: 1,
     author: {
@@ -46,15 +46,13 @@ function App() {
       <Header />
 
       <div className={styles.wrapper}>
-        <Sidebar>sidebar</Sidebar>
+        <Sidebar />
         <main>
           {posts.map((post) => {
             return (
               <Post
                 key={post.id}
-                author={post.author}
-                publishedAt={post.publishedAt}
-                content={post.content}
+                post={post}
               />
             )
           })}
