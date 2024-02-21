@@ -1,0 +1,29 @@
+.task {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  flex: 1;
+  background: var(--gray-500);
+  gap: 0.75rem;
+  border-radius: 8px;
+}
+
+.content {
+  flex: 1;
+}
+
+.contentChecked {
+  text-decoration: line-through;
+}
+
+.task > div {
+  flex: 1;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.task > div > div {
+  line-height: 0;
+}

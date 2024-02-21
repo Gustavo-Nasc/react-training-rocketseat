@@ -1,0 +1,79 @@
+.app {
+  min-height: 100vh;
+}
+
+.main {
+  max-width: 46rem;
+  padding: 0 1rem;
+  margin: auto;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: calc(0px - 1.75rem - 1px);
+}
+
+.form > input {
+  flex: 1;
+}
+
+.tasksCount {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tasksCount > div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.tasksCount > div:first-child {
+  color: var(--blue);
+}
+
+.tasksCount > div:last-child {
+  color: var(--purple);
+}
+
+.tasksCount > div > strong {
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  background-color: var(--gray-400);
+  padding: 2px 0.5rem;
+  line-height: 1;
+  border-radius: 999px;
+}
+
+.tasks {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.anyTask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 0;
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.anyTask > div {
+  text-align: center;
+}
+
+.anyTask > div p {
+  font-weight: bold;
+}

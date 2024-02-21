@@ -1,0 +1,35 @@
+.buttonCreate {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: var(--blue-dark);
+  transition: background 0.2s;
+  color: var(--gray-100);
+  border: none;
+  cursor: pointer;
+}
+
+.buttonCreate:hover {
+  background: var(--blue);
+}
+
+.buttonDelete {
+  border-radius: 8px;
+  padding: 0.375rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  color: var(--gray-300);
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.buttonDelete:hover {
+  background: var(--gray-400);
+  color: var(--danger);
+}
