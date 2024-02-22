@@ -80,6 +80,7 @@ function App() {
           ) : (
             tasks.map((task) => (
               <Task
+                key={task.id}
                 task={task}
                 onCheckTask={changeCheckedTask}
                 onDeleteTask={deleteTask}
