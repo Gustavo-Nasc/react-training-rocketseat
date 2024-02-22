@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import styles from './App.module.css'
 import { Button } from './components/Button'
 import { Header } from './components/Header'
@@ -11,14 +11,37 @@ function App() {
   const [tasks, setTasks] = useState<TaskInfo[]>([])
   const [concludedTasksCount, setConcludedTasksCount] = useState(0)
   const [newTask, setNewTask] = useState('')
+  const [messageErrorVisibility, setMessageErrorVisibility] = useState(false)
+  const [messageError, setMessageError] = useState('')
 
   function handleOnChangeNewTask(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value)
+    if (newTask.length < 1) {
+      setMessageError('Insira a tarefa')
+      setMessageErrorVisibility(true)
+    } else {
+      setMessageError('')
+      setMessageErrorVisibility(false)
+    }
   }
 
   function handleSubmitTask(event: FormEvent) {
     event.preventDefault()
-    setTasks([...tasks, { id: v4(), content: newTask, checked: false }])
+
+    const taskAlreadyExists = tasks.some((task) => task.content === newTask)
+
+    if (taskAlreadyExists) {
+      setMessageError('Tarefa já existe')
+      setMessageErrorVisibility(true)
+    } else if (newTask.length < 1) {
+      setMessageError('Insira a tarefa')
+      setMessageErrorVisibility(true)
+    } else {
+      setTasks([...tasks, { id: v4(), content: newTask, checked: false }])
+      setMessageErrorVisibility(false)
+      setMessageError('')
+      setNewTask('')
+    }
   }
 
   function changeCheckedTask(task: TaskInfo) {
@@ -27,8 +50,10 @@ function App() {
   }
 
   function deleteTask(taskToDelete: TaskInfo) {
+    if (taskToDelete.checked) setConcludedTasksCount(concludedTasksCount - 1)
+
     setTasks((prev) => {
-      return prev.filter((task) => task !== taskToDelete)
+      return prev.filter((task) => task.id !== taskToDelete.id)
     })
   }
 
@@ -36,36 +61,44 @@ function App() {
     document.getElementById('task')?.focus()
   }
 
-  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
-    event.target.setCustomValidity('Insira a tarefa')
-  }
-
   return (
     <div className={styles.app}>
       <Header />
       <main className={styles.main}>
         <form onSubmit={handleSubmitTask} className={styles.form}>
-          <Input
-            className={styles.input}
-            placeholder="Adicione uma nova tarefa"
-            name="task"
-            id="task"
-            value={newTask}
-            onChange={handleOnChangeNewTask}
-            onInvalid={handleNewTaskInvalid}
-            required
-          />
-          <Button type="submit">
-            Criar
-            <PlusCircle weight="bold" size={16} />
-          </Button>
+          <div>
+            <Input
+              className={styles.input}
+              placeholder="Adicione uma nova tarefa"
+              name="task"
+              id="task"
+              value={newTask}
+              onChange={handleOnChangeNewTask}
+            />
+            <Button type="submit">
+              Criar
+              <PlusCircle weight="bold" size={16} />
+            </Button>
+          </div>
+          {messageErrorVisibility && (
+            <span className={styles.messageError}>{messageError}</span>
+          )}
         </form>
         <div className={styles.tasksCount}>
           <div>
             Tarefas Criadas <strong>{tasks.length}</strong>
           </div>
           <div>
-            Concluídas <strong>{concludedTasksCount} de {tasks.length}</strong>
+            Concluídas{' '}
+            {tasks.length === 0 ? (
+              <strong>{concludedTasksCount}</strong>
+            ) : (
+              <>
+                <strong>
+                  {concludedTasksCount} de {tasks.length}
+                </strong>
+              </>
+            )}
           </div>
         </div>
         <section className={styles.tasks}>
@@ -81,6 +114,7 @@ function App() {
             tasks.map((task) => (
               <Task
                 task={task}
+                key={task.id}
                 onCheckTask={changeCheckedTask}
                 onDeleteTask={deleteTask}
               />

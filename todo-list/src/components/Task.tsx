@@ -29,7 +29,7 @@ export function Task({ task, onCheckTask, onDeleteTask }: TaskProps) {
   }
 
   function handleDeleteTask() {
-    onDeleteTask(task)
+    onDeleteTask(updatedTask)
   }
 
   return (

@@ -11,12 +11,19 @@
 .form {
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 0.5rem;
   margin-top: calc(0px - 1.75rem - 1px);
 }
 
-.form > input {
+.form > div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.form > div > input {
   flex: 1;
 }
 
@@ -76,4 +83,8 @@
 
 .anyTask > div p {
   font-weight: bold;
+}
+
+.messageError {
+  color: #f00;
 }
