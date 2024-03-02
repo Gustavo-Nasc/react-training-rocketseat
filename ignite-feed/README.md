@@ -25,6 +25,8 @@ No segundo módulo adiciona-se as funcionalidades principais da aplicação rela
 
 No terceiro, e último módulo, insere-se o TypeScript no projeto para a utilização de uma tipagem estática para o projeto. Também, nesse mesmo módulo, aprende-se alguns conceitos do próprio TypeScript para o React, como Interface.
 
+---
+
 #### 📝 Requisitos
 
 Para que o projeto funcione da sua máquina, em servidor local, você precisa ter instalado na sua máquina:
