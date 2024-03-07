@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: none;
+    border: none;
     box-shadow: 0 0 0 2px ${(props) => props.theme.purple}
   }
 

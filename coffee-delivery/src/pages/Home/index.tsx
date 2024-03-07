@@ -3,13 +3,31 @@ import {
   ApresentationInfos,
   ApresentationSubtitle,
   ApresentationTitle,
+  CoffeeList,
+  ContentListContainer,
+  ContentListTitle,
+  ContentTags,
   HomeContainer,
   Info,
 } from './styles'
-import apresentationImage from '../../assets/apresentation-image.png'
 import * as Icon from 'phosphor-react'
+import {
+  CoffeeCard
+} from './components/CoffeeCard'
+import { CoffeeTag } from './components/CoffeeTag'
+import { CoffeeTagProps } from './components/CoffeeTag/styles'
+import apresentationImage from '../../assets/apresentation-image.png'
+import { coffeeList } from '../../content/coffeList'
+
 
 export function Home() {
+  const coffeeTags: CoffeeTagProps[] = [
+    'tradicional',
+    'especial',
+    'com leite',
+    'gelado',
+  ]
+
   return (
     <HomeContainer>
       <div className="background" />
@@ -56,6 +74,31 @@ export function Home() {
         </article>
         <img src={apresentationImage} alt="" />
       </ApresentationContainer>
+      <ContentListContainer>
+        <div>
+          <ContentListTitle>Nossos Cafés</ContentListTitle>
+          <ContentTags>
+            {coffeeTags.map((tag) => {
+              return <CoffeeTag key={tag} variant="secondary" type={tag} />
+            })}
+          </ContentTags>
+        </div>
+        <CoffeeList>
+          {coffeeList.map((coffee) => {
+            return (
+              <CoffeeCard
+                key={coffee.id}
+                id={coffee.id}
+                name={coffee.name}
+                tags={coffee.tags}
+                description={coffee.description}
+                price={coffee.price}
+                image={coffee.image}
+              />
+            )
+          })}
+        </CoffeeList>
+      </ContentListContainer>
     </HomeContainer>
   )
 }

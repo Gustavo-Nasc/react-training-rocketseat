@@ -69,3 +69,31 @@ export const Info = styled.span<InfoProps>`
     background-color: ${(props) => props.theme[INFO_COLORS[props.infoColor]]};
   }
 `
+
+export const ContentListContainer = styled.section`
+  padding: 2rem 0 5rem;
+
+  & > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.25rem;
+  }
+`
+
+export const ContentListTitle = styled.h2`
+  font: ${(props) => props.theme['title-l']};
+  color: ${(props) => props.theme['base-subtitle']};
+`
+
+export const ContentTags = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
+
+export const CoffeeList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 2.5rem;
+`
